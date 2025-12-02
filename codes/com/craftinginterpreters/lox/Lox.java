@@ -34,6 +34,7 @@ public class Lox{
 
         for(;;){
             System.out.print("> ");
+            String line = reader.readLine();
             if(line == null)break;
             run(line);
 
