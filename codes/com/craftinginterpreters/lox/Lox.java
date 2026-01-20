@@ -63,7 +63,7 @@ public class Lox{
         interpreter.interpret(statements);
         //interpreter.interpret(expression);
 
-        System.out.println(new AstPrinter().print(expression));
+        //System.out.println(new AstPrinter().print(expression));
 
     }
 
@@ -71,11 +71,6 @@ public class Lox{
         report(line, "", message);
     }
 
-    static void runtimeError(RuntimeError error) {
-        System.err.println(error.getMessage() +
-            "\n[line " + error.token.line + "]");
-        hadRuntimeError = true;
-    }
 
     private static void report(int line, String mhere, String message){
         System.err.println("[line " + line + "] Error" + where + ":" + message);
@@ -88,5 +83,11 @@ public class Lox{
         } else {
             report(token.line, " at '" + token.lexeme + "'", message);
         }
+    }
+    
+    static void runtimeError(RuntimeError error) {
+        System.err.println(error.getMessage() +
+            "\n[line " + error.token.line + "]");
+        hadRuntimeError = true;
     }
 }
